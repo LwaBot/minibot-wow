@@ -34,7 +34,7 @@
     - [ADD COMMON PROPERTIES](#add-common-properties)
     - [ADD WAYPOINT ACTIONS](#add-common-properties)
     - [FINALIZE &amp; PUBLISH](#finalize--publish)
-  - [BUILD YOUR OWN FRAMEWORK &amp;SCRIPTS](#build-your-own-framework--addon)
+  - [BUILD YOUR OWN FRAMEWORK &amp;SCRIPTS](#build-your-own-framework--scripts)
     - [UNLOCK PROTECTED WOW API](#unlock-protected-wow-api)
     - [UNIVERSAL OBJECT ID](#universal-object-id)
     - [CUSTOM API](#custom-api)

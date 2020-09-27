@@ -34,7 +34,7 @@
     - [ADD COMMON PROPERTIES](#add-common-properties)
     - [ADD WAYPOINT ACTIONS](#add-common-properties)
     - [FINALIZE &amp; PUBLISH](#finalize--publish)
-  - [BUILD YOUR OWN FRAMEWORK &amp; ADDON](#build-your-own-framework--addon)
+  - [BUILD YOUR OWN FRAMEWORK &amp;SCRIPTS](#build-your-own-framework--addon)
     - [UNLOCK PROTECTED WOW API](#unlock-protected-wow-api)
     - [UNIVERSAL OBJECT ID](#universal-object-id)
     - [CUSTOM API](#custom-api)
@@ -141,7 +141,7 @@ As a normal Bot user, the steps to get onboard are within a couple of minutes.
 
 ## Start as a Project Developer
 
-If you wish to use MiniBot AddOn Framework to develop a project, which is "code-free", follow the next steps. Otherwise, if you come with your own pure Lua scripts/AddOns, you can skip over to [BUILD YOUR OWN FRAMEWORK &amp; ADDON](#build-your-own-framework--addon).
+If you wish to use MiniBot Projetc Framework to develop a project, which is "code-free", follow the next steps. Otherwise, if you come with your own pure Lua scripts/AddOns, you can skip over to [BUILD YOUR OWN FRAMEWORK &amp; ADDON](#build-your-own-framework--addon).
 
 - Download the latest `MiniBot Studio` (`MiniBot.Studio.zip`) in [Releases](https://github.com/pierre-picard/minibot-wow/releases/latest).
 
@@ -431,7 +431,7 @@ Consider `Navigation States` a bridge between the project developer and user. Wh
 
 ### FRAMEWORK VOCABULARY
 
-The up-to-date vocabulary of the AddOn Framework to look up official [Common Properties](#common-property), Condition Variables and Actions, is maintained at:
+The up-to-date vocabulary of the Project Framework to look up official [Common Properties](#common-property), Condition Variables and Actions, is maintained at:
 
 https://docs.google.com/spreadsheets/d/1dzurAMgAs0RuRevQZHptpJVQYJFBKb9_gyHsLMS-Wuw
 
@@ -762,13 +762,13 @@ The compiled project file (xxx.bot) is nothing different from a source project f
 
 [Back to Top](#home)
 
-## BUILD YOUR OWN FRAMEWORK &amp; ADDON
+## BUILD YOUR OWN FRAMEWORK &amp; SCRIPTS
 
 This is an advanced topic for those real Lua gurus. In fact, this is the way and the only way that other "unlockers" in the market provide. Of course, we also don't limit any possibilities in this area. You are fully capable to create your own framework or WoW addon with the unlocking feature and API set brought by `MiniBot for WoW`, in pure Lua.
 
 If you still wish to build your own logics on top of our development framework, you can still create [Project](#project) with primary focus on the [Custom Scripts](#CUSTOM-SCRIPT) part. Notice that all [Custom Scripts](#CUSTOM-SCRIPT) get loaded in the first beginning (the same time when MiniBot Development Framework is loaded), so this is quite similar as a normal WoW addon lua file. However, you can enjoy the full benefits of [Project](#project), including UI panel settings and encryption with authorization controls!
 
-If you don't like our development framework at all, you can fully build your own pure WoW addon. And what `MiniBot` offers is fully-featured unlocker, described below.
+If you don't like our development framework at all, you can fully build your own pure WoW addon. And what `MiniBot` offers is fully-featured unlocker, described below. However, we encourage you to use our MiniBot Loader (via "scripts" folder) and avoid public AddOns since they could serve as another detection vector.
 
 ### Unlock Protected WoW API
 
@@ -790,7 +790,7 @@ The up-to-date custom API of MiniBot for WoW is maintained [here](API.md).
 
 ### Framework-independent Project
 
-MiniBot also allows you to create "framework-independent" projects which can be loaded by MiniBot directly without the AddOn framework. Such projects work like a pure WoW AddOn, except that:
+MiniBot also allows you to create "framework-independent" projects which can be loaded by MiniBot directly without the Project framework. Such projects work like a pure WoW AddOn, except that:
 
 1. The project is loaded in both Login screen and World.
 2. The project is able to be encrypted by `MiniBot CLI`, to take the advantage of source code protection and authorization controls.

@@ -2,84 +2,55 @@
 if not wmbapi then -- Use wmbapi variable to detect whether MiniBot's API is fully loaded
 	return
 end
-__LB__ = wmbapi
 lb = wmbapi
-CancelPendingSpells = CancelPendingSpell 
-ClickPosition = ClickPosition
-CreateDirectory = CreateDirectory
-DirectoryExists = DirectoryExists
-FileExists = FileExists
-GetBaseDirectory = GetAppDirectory
-GetCameraPosition = GetCameraPosition
-GetDirectories = GetDirectoryFolders
-GetFiles = GetDirectoryFiles
-GetGameDirectory = GetWoWDirectory
-GetKeyState = GetKeyState
-GetMapId = GetCurrentMapInfo
-GetObjects = function()
+__LB__ = lb
+lb.GetBaseDirectory = wmbapi.GetAppDirectory
+lb.GetDirectories = wmbapi.GetDirectoryFolders
+lb.GetFiles = wmbapi.GetDirectoryFiles
+lb.GetGameDirectory = wmbapi.GetWoWDirectory
+lb.GetMapId = wmbapi.GetCurrentMapInfo
+lb.GetObjects = function()
 	local objects = {}
 	for i=1,wmbapi.GetObjectCount() do
 		tinsert(objects,wmbapi.GetObjectWithIndex(i))
 	end
 	return objects
 end
-GetPlayerCorpsePosition = GetCorpsePosition
-GetWindowSize = function()
+lb.GetPlayerCorpsePosition = wmbapi.GetCorpsePosition
+lb.GetWindowSize = function()
 	return GetScreenWidth(), GetScreenHeight()
 end
-NavMgr_GetPath = FindPath
-IsAoEPending = IsAoEPending
-MoveTo = MoveTo
-ObjectCreator = UnitCreator
-ObjectDynamicFlags = ObjectDynamicFlags
-ObjectExists = ObjectExists
-ObjectFacing = ObjectFacing
-ObjectId = function(...) return ... and tonumber(string.match(UnitGUID(...), "-(%d+)-%x+$"), 10) end
-ObjectInteract = InteractUnit
-ObjectPitch = UnitPitch
-ObjectPointer = function(...)
-	if not UnitIsVisible(...) then
-		return
-	end
-	local pointer = nil
-	for i=1,wmbapi.GetObjectCount() do
-		pointer = wmbapi.GetObjectWithIndex(i)
-		if UnitIsVisible(pointer) and UnitIsUnit(pointer,...) then
-			return pointer
-		end	
-	end
-end
-ObjectPosition = ObjectPosition
-Raycast = TraceLine
-ReadFile = ReadFile
-SetPlayerAngles = FaceDirection
-UnitBoundingRadius = UnitBoundingRadius
-UnitCastingInfo = function(...) return select(7,GetSpellInfo(UnitCastingInfo(...))), wmbapi.UnitCastingTarget end
-UnitChannelInfo = function(...) return select(7,GetSpellInfo(UnitChannelInfo(...))), wmbapi.UnitCastingTarget end
-UnitCombatReach = UnitCombatReach
-UnitFlags = UnitFlags
-UnitIsLootable = UnitIsLootable
-UnitMovementFlags = GetUnitMovementFlagsTable
-UnitTarget = UnitTarget
-UpdateAFK = ResetAfk
-WriteFile = WriteFile
+lb.NavMgr_GetPath = wmbapi.FindPath
+lb.ObjectCreator = UnitCreator
+lb.ObjectInteract = InteractUnit
+lb.ObjectPitch = wmbapi.UnitPitch
+lb.ObjectPointer = wmbapi.GetObject
+lb.Raycast = wmbapi.TraceLine
+lb.SetPlayerAngles = wmbapi.FaceDirection
+lb.UnitCastingInfo = function(...) return select(7,GetSpellInfo(UnitCastingInfo(...))), wmbapi.UnitCastingTarget end
+lb.UnitChannelInfo = function(...) return select(7,GetSpellInfo(UnitChannelInfo(...))), wmbapi.UnitCastingTarget end
+lb.UnitMovementFlags = wmbapi.GetUnitMovementFlagsTable
+lb.UpdateAFK = wmbapi.ResetAfk
+lb.GetGameAccountName = wmbapi.GetCurrentAccount
+lb.GetDistance3D = wmbapi.GetDistanceBetweenObjects
+lb.RunString = function(...) wmbapi.RunScript("",...) end
+lb.PlayerSpecializationId = function(...) return wmbapi.ObjectDescriptor(...,wmbapi.GetObjectDescriptorsTable()["CGPlayerData__currentSpecID"], wmbapi.GetValueTypesTable().Int) end
+lb.UnitNpcFlags = function(...) return wmbapi.ObjectDescriptor(..., wmbapi.GetObjectDescriptorsTable()["CGUnitData__npcFlags"], wmbapi.GetValueTypesTable().Int) end
+lb.UnitFlags = function(...) return wmbapi.ObjectDescriptor(..., wmbapi.GetObjectDescriptorsTable()["CGUnitData__flags"], wmbapi.GetValueTypesTable().Int) end
+lb.UnitFlags2 = function(...) return wmbapi.ObjectDescriptor(..., wmbapi.GetObjectDescriptorsTable()["CGUnitData__flags2"], wmbapi.GetValueTypesTable().Int) end
 
 
 -- Missing API
 UpdatePlayerMovement = nil
 Unlock = nil
 UnitTagHandler = nil
-UnitNpcFlags = nil
 UnitHasMovementFlag = nil
 UnitHasNpcFlag = nil
 UnitHasFlag = nil
 UnitHasFlag2 = nil
-UnitFlags2 = nil
 UnitAuras = nil
 SetDevMode = nil
 SetCameraAngles = nil
-RunString = nil
-PlayerSpecializationId = nil
 ObjectRawFacing = nil
 ObjectLocked = nil
 ObjectHasDynamicFlag = nil
@@ -90,8 +61,6 @@ GetCameraAngles = nil
 GetClientType = nil
 GetClockTime = nil
 GetDevMode = nil
-GetGameAccountName = nil
-GetDistance3D = nil
 GetLastWorldClickPosition = nil
 Navigator.GetDestination = nil
 Navigator.MoveTo = nil

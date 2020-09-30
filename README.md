@@ -141,7 +141,7 @@ As a normal Bot user, the steps to get onboard are within a couple of minutes.
 
 ## Start as a Project Developer
 
-If you wish to use MiniBot Projetc Framework to develop a project, which is "code-free", follow the next steps. Otherwise, if you come with your own pure Lua scripts/AddOns, you can skip over to [BUILD YOUR OWN FRAMEWORK &amp; ADDON](#build-your-own-framework--addon).
+If you wish to use MiniBot Project Framework to develop a project, which is "code-free", follow the next steps. Otherwise, if you come with your own pure Lua scripts/AddOns, you can skip over to [BUILD YOUR OWN FRAMEWORK &amp; SCRIPTS](#build-your-own-framework--scripts).
 
 - Download the latest `MiniBot Studio` (`MiniBot.Studio.zip`) in [Releases](https://github.com/pierre-picard/minibot-wow/releases/latest).
 
@@ -179,10 +179,10 @@ If you wish to sell your project work or even want to white label the product to
 REM Show detailed command help.
 MiniBot.WoW.Cli.exe inject -h
 
-REM Launch WoW (retail) with AddOns Framework, but manually start WoW afterwards.
+REM Launch WoW (retail) with Project Framework, but manually start WoW afterwards.
 MiniBot.WoW.Cli.exe inject -u "your@email.com" -p "yourPassword" -g "C:\Games\World of Warcraft\_retail_\Wow.exe" -d "wmb" -s "1"
 
-REM Launch WoW (classic) w/o AddOns Framework, and start WoW afterwards.
+REM Launch WoW (classic) w/o Project Framework, and start WoW afterwards.
 MiniBot.WoW.Cli.exe inject -u "your@email.com" -p "yourPassword" -g "C:\Games\World of Warcraft\_classic_\WowClassic.exe" -o -s "1" -l
 ```
 
@@ -785,6 +785,8 @@ Here is the [list](https://wow.gamepedia.com/Category:API_functions/Protected) o
 ### Custom API
 
 The up-to-date custom API of MiniBot for WoW is maintained [here](API.md).
+
+The snippet files to convert existing API from other platforms over to Minibot can be found [here](https://github.com/pierre-picard/minibot-wow/tree/master/snippets).
 
 [Back to Top](#home)
 

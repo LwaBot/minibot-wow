@@ -1,4 +1,5 @@
 -- Converted API
+-- Some API is not listed because they have same names and the global tables converter does the trick (lines 6 and 7). Only pay attention to the "missing api" part (line 44)
 if not wmbapi then -- Use wmbapi variable to detect whether MiniBot's API is fully loaded
 	return
 end

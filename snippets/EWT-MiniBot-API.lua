@@ -157,7 +157,7 @@ StopMoving = function()
 	end
 end
 IsMeshLoaded = wmbapi.IsMapLoaded
-CalculatePath = wmbapi.FindPath
+CalculatePath = function(MapID, FromX, FromY, FromZ, ToX, ToY, ToZ, StraightPath, AllowSwimming, WallDistance) return wmbapi.FindPath(MapID, FromX, FromY, FromZ, ToX, ToY, ToZ, not AllowSwimming) end
 SetMaximumClimbAngle = wmbapi.SetClimbAngle
 GetMapId = wmbapi.GetCurrentMapInfo
 ObjectGUID = UnitGUID

@@ -649,6 +649,32 @@ Gets the flags of an unit.
 
 Gets a field value of an object.
 
+- `spellId, target, startTime, endTime = UnitCasting(unit)`
+
+Gets the casting info of a unit, an enhanced version for the BLZ API ```UnitCastingInfo```.
+
+Notice in Classic, the API only works for "player" unit due to game data restrictions. If you need further info, [LibClassicCasterino](https://github.com/rgd87/LibClassicCasterino) based on combat event estimation is recommended.
+
+```
+spellId (number): The ID of the spell casting.
+target (string): The casting target object.
+startTime (number): The casting start timestamp, in milliseconds.
+endTime (number): The casting end timestamp, in milliseconds.
+```
+
+- `spellId, target, startTime, endTime = UnitChannel(unit)`
+
+Gets the channel info of a unit, an enhanced version for the BLZ API ```UnitChannelInfo```.
+
+Notice in Classic, the API only works for "player" unit while the target is nil due to game data restrictions. If you need further info, [LibClassicCasterino](https://github.com/rgd87/LibClassicCasterino) based on combat event estimation is recommended.
+
+```
+spellId (number): The ID of the spell channelling.
+target (string): The channelling target object.
+startTime (number): The channelling start timestamp, in milliseconds.
+endTime (number): The channelling end timestamp, in milliseconds.
+```
+
 - `castingTarget = UnitCastingTarget(unit)`
 
 Gets the casting target object of a unit.

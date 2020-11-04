@@ -711,6 +711,16 @@ Gets the ID of a unit's creature family. nil if the unit does not have one.
 
 Gets the field value of a unit's creature cache struct.
 
+- `typeId, typeName = GameObjectType(object)`
+
+Gets the type info of a game object.
+
+```lua
+-- object (string): The game object.
+-- typeId (number): The type ID of the game object, starting from 1.
+-- typeName (string): The type name of the game object.
+```
+
 [Back to Top](#custom-api)
 
 ## In-World (Object-General)

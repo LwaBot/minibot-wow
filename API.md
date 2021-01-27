@@ -54,11 +54,11 @@ Gets the app base directory path.
 
 Gets the app username.
 
-- `path = GetAppSessionCount()`
+- `count = GetAppSessionCount()`
 
 Gets the total session count of the current launch.
 
-- `path = GetAppSessionIndex()`
+- `index = GetAppSessionIndex()`
 
 Gets the index of the current launched session, starting from 1.
 

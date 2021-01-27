@@ -3,16 +3,45 @@ if (not IsOnGlueScreen()) then
     return;
 end
 
--- Login email. If not previously set by SetSystemVariable, use "test@test.com".
-local email = wmbapi.GetSystemVar("relogger.email") or "test@test.com";
--- Login password. If not previously set by SetSystemVariable, use "password".
-local password = wmbapi.GetSystemVar("relogger.password") or "password";
--- Login account. If not previously set by SetSystemVariable, use "WoW1".
-local account = wmbapi.GetSystemVar("relogger.account") or "WoW1";
--- Login realm. If not previously set by SetSystemVariable, nil to use the current one.
+-- Login credentials. If not previously set by SetSystemVariable, use the following table, indexed by session index.
+local accounts = {
+    [1] = {
+        email = "wow1@email.com",
+        password = "password1",
+        account = "WoW1",
+        realm = "realm1",
+        character = "character1"
+    },
+    [2] = {
+        email = "wow2@email.com",
+        password = "password2",
+        account = "WoW2",
+        realm = "realm2",
+        character = "character2"
+    }
+};
+local email = wmbapi.GetSystemVar("relogger.email");
+local password = wmbapi.GetSystemVar("relogger.password");
+local account = wmbapi.GetSystemVar("relogger.account");
 local realm = wmbapi.GetSystemVar("relogger.realm");
--- Login character. If not previously set by SetSystemVariable, use "character".
-local character = wmbapi.GetSystemVar("relogger.character") or "character";
+local character = wmbapi.GetSystemVar("relogger.character");
+local session = wmbapi.GetAppSessionIndex();
+if (not email) then
+    email = accounts[session].email;
+end
+if (not password) then
+    password = accounts[session].password;
+end
+if (not account) then
+    account = accounts[session].account;
+end
+if (not realm) then
+    realm = accounts[session].realm;
+end
+if (not character) then
+    character = accounts[session].character;
+end
+
 -- Do nothing if email is set to empty.
 if (#email == 0 or #password == 0) then
     return;
